@@ -1,0 +1,53 @@
+ *{
+    font-size: 26px;
+   
+}
+
+.bod{
+    margin: 0;
+    background-color: rgb(212, 224, 220);
+    font-family: 'Montserrat', sans-serif;
+    }
+
+.header2{
+    background-color: #364552;
+    padding: 5px ;
+    color: wheat;
+    
+}
+
+#inicio1{
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+footer{
+    background-color: #222;
+    padding: 1rem;
+    color: #fff;
+}
+
+footer section{
+    float: right;
+}
+
+footer p{
+    margin: 0;
+}
+
+footer a{
+    transition: color 0.3s ease;
+    color: white;
+    text-decoration: none;
+    visibility: white;
+}
+
+footer a .sub{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: cornflowerblue;
+}
