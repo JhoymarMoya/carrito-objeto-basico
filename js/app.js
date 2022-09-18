@@ -9,7 +9,7 @@ console.log(fragment);
 console.log(botenes); */
 
 //donde se almacenan los productos
-const carritoObjeto = {};
+const carritoObjeto = [];
 
 //funcion agregar
 const agregar = (e) => {
@@ -21,20 +21,27 @@ const agregar = (e) => {
         cantidad: 1
     };
 
-    if (carritoObjeto.hasOwnProperty(producto.titulo)) { //saber si ya heciste el objeto producto titulo
-        producto.cantidad = carritoObjeto[producto.titulo].cantidad + 1 //para aumentar la cantidad del producto
+    const indice = carritoObjeto.findIndex( //saber si hay una compra en el array
+        (item) => item.id === producto.id
+    );
+    console.log(indice);
+
+    if( indice === -1){// entonces ahora si esta vacia ese array agregamos esa compra al array
+        carritoObjeto.push(producto);
+    }else { // si ya heciste elemento en el array ahora sumamos la comprar al contador=(cantidad)
+        carritoObjeto[indice].cantidad ++;
     }
-
-    carritoObjeto[producto.titulo] = producto;
-
-    pintarCarrito(producto);
+    
+    console.log(carritoObjeto);
+    
+    pintarCarrito(carritoObjeto);// lo vamos a utilizar como parametros para los botenes de agregar y quitar
 };
 
-const pintarCarrito = (producto) => {
-    //console.log("pintar carrito", producto);
+const pintarCarrito = (nuevoArray) => {
+    
     carrito.textContent= "";
 
-    Object.values(carritoObjeto).forEach(item => {
+    nuevoArray.forEach(item => {
         const clone = template.content.firstElementChild.cloneNode(true);
         clone.querySelector('.lead').textContent = item.titulo;
         clone.querySelector('.badge').textContent = item.cantidad;
